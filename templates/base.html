@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="uk">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Патякало</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bulma.min.css') }}">
+    </head>
+    <body>
+        <main>
+            {% block content %}{% endblock %}
+        </main>
+    </body>
+    <script src="{{ url_for('static', filename='dist/main.js') }}"></script>
+</html>
