@@ -1,0 +1,43 @@
+@keyframes loadingDiv {
+    0% {
+        opacity: 0;
+        transform: scale(.5);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(.75);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(1);
+    }
+}
+
+div {
+    &.is-loading {
+        position: relative;
+        &::before {
+            content: '';
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: var(--bulma-body-background-color);
+            z-index: 99;
+        }
+        &::after {
+            content: '';
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin: -20px 0 0 -20px;
+            background: hsl(var(--bulma-text-h),var(--bulma-text-s),var(--bulma-text-l));
+            animation: loadingDiv 1s linear infinite;
+            z-index: 100;
+        }
+    }
+}

@@ -19,15 +19,14 @@ def home():
 @app.route('/r/name', methods=['GET', 'POST'])
 def name():
     args = {
-        'username': "User",
-        'html': ""
+        'username': "",
     }
     if 'username' in session:
         args['username'] = session['username']
     if request.method == 'POST':
-        args['username'] = request.form['username']
-    else:
-        args['html'] = render_template('components/name-form.html')
+        if 'username' in request.json:
+            session['username'] = request.json['username']
+            args['username'] = request.json['username']
     return args
 
 

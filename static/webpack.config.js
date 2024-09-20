@@ -1,8 +1,7 @@
 const path = require('path');
 
 module.exports = {
-    mode: 'development',
-    entry: './src/index.js',
+    entry: './src/js/index.js',
     output: {
         filename: 'main.js',
         path: path.resolve(__dirname, 'dist'),
@@ -18,6 +17,14 @@ module.exports = {
                         presets: ['@babel/preset-env', '@babel/preset-react']
                     }
                 }
+            },
+            {
+                test: /\.less$/i,
+                use: [
+                    "style-loader",
+                    "css-loader",
+                    "less-loader"
+                ]
             }
         ]
     }
